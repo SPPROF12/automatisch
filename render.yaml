@@ -13,35 +13,19 @@ services:
           type: web
           envVarKey: RENDER_EXTERNAL_HOSTNAME
       - key: POSTGRES_HOST
-        fromDatabase:
-          name: automatisch-database
-          property: host
+        value: your-external-database-host
       - key: POSTGRES_PORT
-        fromDatabase:
-          name: automatisch-database
-          property: port
+        value: your-external-database-port
       - key: POSTGRES_DATABASE
-        fromDatabase:
-          name: automatisch-database
-          property: database
+        value: your-external-database-name
       - key: POSTGRES_USERNAME
-        fromDatabase:
-          name: automatisch-database
-          property: user
+        value: your-external-database-username
       - key: POSTGRES_PASSWORD
-        fromDatabase:
-          name: automatisch-database
-          property: password
+        value: your-external-database-password
       - key: REDIS_HOST
-        fromService:
-          type: redis
-          name: automatisch-redis
-          property: host
+        value: your-external-redis-host
       - key: REDIS_PORT
-        fromService:
-          type: redis
-          name: automatisch-redis
-          property: port
+        value: your-external-redis-port
       - fromGroup: common-env-vars
   - type: worker
     name: automatisch-worker
@@ -59,43 +43,21 @@ services:
           type: web
           envVarKey: RENDER_EXTERNAL_HOSTNAME
       - key: POSTGRES_HOST
-        fromDatabase:
-          name: automatisch-database
-          property: host
+        value: your-external-database-host
       - key: POSTGRES_PORT
-        fromDatabase:
-          name: automatisch-database
-          property: port
+        value: your-external-database-port
       - key: POSTGRES_DATABASE
-        fromDatabase:
-          name: automatisch-database
-          property: database
+        value: your-external-database-name
       - key: POSTGRES_USERNAME
-        fromDatabase:
-          name: automatisch-database
-          property: user
+        value: your-external-database-username
       - key: POSTGRES_PASSWORD
-        fromDatabase:
-          name: automatisch-database
-          property: password
+        value: your-external-database-password
       - key: REDIS_HOST
-        fromService:
-          type: redis
-          name: automatisch-redis
-          property: host
+        value: your-external-redis-host
       - key: REDIS_PORT
-        fromService:
-          type: redis
-          name: automatisch-redis
-          property: port
+        value: your-external-redis-port
       - fromGroup: common-env-vars
-  - type: redis
-    name: automatisch-redis
-    ipAllowList: [] # allow only internal connections
-    maxmemoryPolicy: noeviction
-databases:
-  - name: automatisch-database
-    databaseName: automatisch
+
 envVarGroups:
   - name: common-env-vars
     envVars:
